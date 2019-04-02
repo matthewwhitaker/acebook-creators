@@ -20,9 +20,11 @@
         <br>
         <i>On <%= post.created_at.strftime("%B %d %Y, %l:%M%P") %></i>
         <br>By user number: <%= post.user_id %>
+       </div>
+      <div class="card-like">
+      <button type="button" class="btn btn-primary">Like</button>
       </div>
     </div>
     <br><br>
   <% end %>
 </div>
-
