@@ -5,4 +5,9 @@ class LikesController < ApplicationController
     redirect_to posts_url
   end
 
+  def destroy
+    Like.find_by(id: params[:id]).destroy
+    redirect_to posts_url
+  end
+
 end
