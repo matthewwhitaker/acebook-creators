@@ -22,7 +22,14 @@
         <br>By user number: <%= post.user_id %>
        </div>
       <div class="card-like">
-      <button type="button" class="btn btn-primary">Like</button>
+        <% existing_like = post.likes.find{ |like| like.user_id == current_user.id } %>
+        <% if !existing_like %>
+          <%= link_to post_likes_path(post), method: :post do%>
+            <button type="button" class="btn btn-primary">Like</button>
+          <% end %>
+        <% else %>
+            <button type="button" class="btn btn-primary">Unlike</button>
+        <% end %>
       </div>
     </div>
     <br><br>
