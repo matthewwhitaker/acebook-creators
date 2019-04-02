@@ -1,4 +1,20 @@
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+    - 'app/controllers/users/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
 Metrics/LineLength:
   Max: 120
+
+
+Metrics/BlockLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
