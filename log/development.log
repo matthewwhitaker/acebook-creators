@@ -2004,3 +2004,391 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1344049087128799065)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 >>>>>>> 0d85c57ba081126bfbf028042da7f400d0b59fce
+Started GET "/" for ::1 at 2019-04-03 11:55:47 +0100
+  [1m[35m (45.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.7) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.7) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (41.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1344049087128799065)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLikes (20190402141150)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.4ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "post_id" bigint, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_87a8aac469"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+, CONSTRAINT "fk_rails_1e09b5dabf"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_post_id" ON "likes"  ("post_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_likes_on_user_id" ON "likes"  ("user_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190402141150"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1344049087128799065)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2019-04-03 11:56:23 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-03 11:56:23 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (262.5ms)
+Completed 200 OK in 321ms (Views: 305.4ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-04-03 11:56:56 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9rd36Yf/Hvombv+L4hbHnXyB/m/Ymbz8WsRfDjRONiPKIQaDOqA3XDbGZQEYLf13FziLPkz1Grru5RUBgYYWeg==", "user"=>{"email"=>"dd@dd", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "dd@dd"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 159ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 11:56:56 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (43.9ms)
+Completed 200 OK in 73ms (Views: 54.8ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-04-03 11:57:05 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for ::1 at 2019-04-03 11:57:09 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FKOwoxhrmSMjc8iiSAIOC8HavCC8sbR/NpmqUynnBbKwHFF9h+3VbpsVlMLnd93gRuBiGIPK7VnXPA8ehJrp7g==", "post"=>{"message"=>"new post"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "new post"], ["created_at", "2019-04-03 10:57:09.488137"], ["updated_at", "2019-04-03 10:57:09.488137"], ["user_id", 7]]
+  [1m[35m (41.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 56ms (ActiveRecord: 42.5ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 11:57:09 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 39]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 53ms (Views: 45.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/posts/39/edit" for ::1 at 2019-04-03 11:57:11 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 36ms (Views: 29.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/posts/39" for ::1 at 2019-04-03 11:57:17 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F34I3TPSCpitePgPd3ygTeKN5+RUdu9W8QHspQN423ezwekDrFRG1RUepG/YCXOmZbc53GsNtnAQpEnorgU3Kw==", "post"=>{"message"=>"new post again"}, "commit"=>"Save Post", "id"=>"39"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "posts" SET "message" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["message", "new post again"], ["updated_at", "2019-04-03 10:57:17.821319"], ["id", 39]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/39
+Completed 302 Found in 9ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/posts/39" for ::1 at 2019-04-03 11:57:17 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 26.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 11:57:19 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 39]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 51ms (Views: 43.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/posts/23/edit" for ::1 at 2019-04-03 11:57:25 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Filter chain halted as :post_time rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 11:57:25 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  Rendering html template
+  Rendered html template (0.0ms)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 39]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 35ms (Views: 28.8ms | ActiveRecord: 3.2ms)
+
+
+Started DELETE "/posts/39" for ::1 at 2019-04-03 11:57:43 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q5WvhXc29dlKpgJnnx+oNydWi7dndPrUvrqZkeb9EDYPKk5b6LC5lPLAXgcwanvcoGxVj1gPo/JfHzzcS4D8ag==", "id"=>"39"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 39]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 11:57:43 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 33ms (Views: 27.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 12:07:20 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (52.6ms)
+Completed 200 OK in 285ms (Views: 247.3ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/posts/36/likes" for ::1 at 2019-04-03 12:07:21 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"gfjqJjMd11CT8YRun2WOTY9NJBXmbY7R3W/tvN5mEdElRwv4rJubHSuX2A4wEF2mCHf6LdkW1/c8ykjxcxv9jQ==", "post_id"=>"36"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "likes" ("post_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 36], ["user_id", 7], ["created_at", "2019-04-03 11:07:21.454940"], ["updated_at", "2019-04-03 11:07:21.454940"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 19ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 12:07:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (1.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 56ms (Views: 49.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/posts/38/likes" for ::1 at 2019-04-03 12:07:32 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"v9HXlyrgS639PIxDrlYpgFPwhppVq6Tjrl0YhhBvUd4bbjZJtWYH4EVa0CMBI/pr1MpYomrQ/cVP+L3LvRK9gg==", "post_id"=>"38"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("post_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 38], ["user_id", 7], ["created_at", "2019-04-03 11:07:32.687865"], ["updated_at", "2019-04-03 11:07:32.687865"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 8ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 12:07:32 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 37ms (Views: 30.3ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/posts/38/likes/2" for ::1 at 2019-04-03 12:07:38 +0100
+Processing by LikesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k+pk1pv8W5BILHIAZfN4bjxsgMWpQbePqa1X+YIHL543VYUIBHoX3fBKLmDKhquFu1Ze/ZY67qlICPK0L3rDwg==", "post_id"=>"38", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = $1[0m  [["id", 2]]
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 45ms (ActiveRecord: 40.6ms)
+
+
+Started GET "/posts" for ::1 at 2019-04-03 12:07:38 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 38]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 36]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 35]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 34]]
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 33]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 32]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 28]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 23]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 17]]
+  Rendered posts/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 38ms (Views: 30.8ms | ActiveRecord: 3.4ms)
+
+
