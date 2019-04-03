@@ -57,3 +57,7 @@ See https://docs.google.com/document/d/1-bv7yLO38CKlP1r0C1-qqpVL5H6gtalqZolHUrqK
 * Check the results in ./coverage/index.html or on the console
 * Remember to add /coverage to the .gitignore if it is not already there so that the test coverage stats don't get added to git.
 * More info here - https://github.com/colszowka/simplecov
+
+## Photo credits
+
+* [Helena Lopes on Unsplash](https://unsplash.com/photos/PGnqT0rXWLs)

@@ -1,16 +1,16 @@
 <div class="login-container">
-<h2>Connect with people in your life.</h2>
-<%= image_tag("download.png", alt: "hand") %>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<% if !flash[:alert].blank? %>
-    <% if flash[:alert][/The email address and password you entered do not match our records/] %>
+  <h2>Where makers connect</h2>
+  <%= image_tag("helena-lopes-459331-unsplash.jpg", alt: "friends", :size => "650x300") %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <% if !flash[:alert].blank? %>
+      <% if flash[:alert][/The email address and password you entered do not match our records/] %>
       <div class="flashNotice col last">
         <%= t('devise.failure.not_found_in_database', resource_name: "#{params[:user][:email]}").html_safe %>
       </div>
-    <% else %>
+      <% else %>
       <div class="flashNotice col last"><%= flash[:alert]%></div>
+      <% end %>
     <% end %>
-<% end %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -31,22 +31,9 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+  <br><br><br>
 
-<footer class="container footer">
-      <nav class="navbar d-flex">
-        <ul>
-          <li>ABOUT US
-          </li>
-          <li>PRIVACY</li>
-          <li>TERMS</li>
-          <li>PROFILES</li>
-          <li>HASHTAGS</li>
-          <li>LANGUAGE</li>
-        </ul>
-        <p> Acebook © 2019  </p>
-      </nav>
-    </footer>
 </div>

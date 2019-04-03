@@ -32,6 +32,26 @@ div[class="new-post-button"]{
   font-family: "roboto";
   font-weight: bold;
   color: white;
+  background-color: green;
+  overflow: hidden;
+  padding: 10px 10px;
+}
+
+div[class="logout-button"]{
+  
+}
+
+div[class="container footer"]{
+  overflow: hidden;
+  font-size: 30px;
+  font-family: "roboto";
+  font-weight: bold;
+  color: white;
+  position:fixed;
+  bottom: 0px;
+  width: 400px;
+  text-align: center;
+  width: 100%;
 }
 
 div[class="header-title"]{
