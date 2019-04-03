@@ -57,6 +57,10 @@ div[id="alert"]{
   color:red;
 }
 
+div[class="message"]{
+  text-align: center
+}
+
 h2{
   text-align: left;
   padding-left: 20%;

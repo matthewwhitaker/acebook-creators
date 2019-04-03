@@ -30,7 +30,7 @@
           <%= link_to post_path(:id => post.id), controller: 'posts',
           action: 'destroy', method: 'delete',
           data: {confirm: "Are you sure you want to delete the post?",
-          confirm_proceed: "Disconnect"}, :class => "btn btn-primary" do %>Delete<% end %>
+          confirm_proceed: "Disconnect"}, :class => "btn-outline-danger" do %>Delete<% end %>
       <% end %>
       </div>
     </div>
