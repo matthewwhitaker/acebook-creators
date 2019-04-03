@@ -25,6 +25,20 @@
         <br>
         <i>On <%= post.created_at.strftime("%B %d %Y, %l:%M%P") %></i>
         <br>By user number: <%= post.user_id %>
+
+       </div>
+      <div class="card-like">
+        <% existing_like = post.likes.find{ |like| like.user_id == current_user.id } %>
+        <% if !existing_like %>
+          <%= link_to post_likes_path(post), method: :post do%>
+            <button type="button" class="btn btn-primary">Like</button>
+          <% end %>
+        <% else %>
+          <%= link_to post_like_path(post, existing_like), method: :delete do%>
+            <button type="button" class="btn btn-primary">Unlike</button>
+          <% end %>
+        <% end %>
+        
         <% if post.user_id == current_user.id %>
           <br><%= link_to 'Edit', edit_post_path(post), :id => "edit-#{post.id}" %>
           <%= link_to post_path(:id => post.id), controller: 'posts',
