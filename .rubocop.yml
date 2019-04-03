@@ -12,6 +12,8 @@ AllCops:
 Metrics/LineLength:
   Max: 120
 
+Style/GuardClause:
+  Enabled: false
 
 Metrics/BlockLength:
   Enabled: false
