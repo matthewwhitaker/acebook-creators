@@ -1,8 +1,9 @@
 <% unless session[:display_welcome] %>
-  <%= flash.now[:notice] = "Sign in succesful" %>
+<div class="alert alert-success">
+  <%= flash.now[:notice] = "Sign in succesful"%>
   <% session[:display_welcome] = true %>
 <% end %>
-
+</div>
 <div class="error-message">
   <% unless flash[:alert].nil? %>
     <%= render html: "<script>alert('#{flash[:alert]}')</script>".html_safe %>
