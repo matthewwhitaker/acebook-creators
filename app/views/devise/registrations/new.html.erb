@@ -4,6 +4,20 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <div class="field" name="firstname">
+    <%= f.label :firstname %>
+    <br>
+    <%= f.text_field :firstname, autofocus: true %>
+  </div>
+  <br>
+
+  <div class="field" name="lastname">
+    <%= f.label :lastname %>
+    <br>
+    <%= f.text_field :lastname, autofocus: true %>
+  </div>
+  <br>  
+
   <div class="field" name="email">
     <%= f.label :email %>
     <br>
