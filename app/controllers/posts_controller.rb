@@ -34,14 +34,14 @@ class PostsController < ApplicationController
 
   def post_owner
     @post = Post.find(params[:id])
-    if @post.user_id != current_user.id
-      redirect_to posts_path, :alert => "This is not your post to edit"
-    end
+     if @post.user_id != current_user.id
+       redirect_to posts_path, alert: 'This is not your post to edit'
+     end
   end
 
   def post_time
-    if Time.now > (@post.created_at + 10*60)
-      redirect_to posts_path, :alert => "You can no longer edit this post (it is more than 10 minutes old)"
+    if Time.now > (@post.created_at + 10 * 60)
+      redirect_to posts_path, alert: 'You can no longer edit this post (it is more than 10 minutes old)'
     end
   end
 

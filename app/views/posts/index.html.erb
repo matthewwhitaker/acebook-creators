@@ -25,12 +25,24 @@
         <br>
         <i>On <%= post.created_at.strftime("%B %d %Y, %l:%M%P") %></i>
         <br>By user number: <%= link_to user_path(id: post.user_id), controller: 'users' do %> <%= post.user_id %> <% end %>
+       </div>
+      <div class="card-like">
+        <% existing_like = post.likes.find{ |like| like.user_id == current_user.id } %>
+        <% if !existing_like %>
+          <%= link_to post_likes_path(post), method: :post do%>
+            <button type="button" class="btn btn-primary">Like</button>
+          <% end %>
+        <% else %>
+          <%= link_to post_like_path(post, existing_like), method: :delete do%>
+            <button type="button" class="btn btn-primary">Unlike</button>
+          <% end %>
+        <% end %>
         <% if post.user_id == current_user.id %>
           <br><%= link_to 'Edit', edit_post_path(post), :id => "edit-#{post.id}" %>
           <%= link_to post_path(:id => post.id), controller: 'posts',
           action: 'destroy', method: 'delete',
           data: {confirm: "Are you sure you want to delete the post?",
-          confirm_proceed: "Disconnect"}, :class => "btn btn-primary" do %>Delete<% end %>
+          confirm_proceed: "Disconnect"}, :class => "btn-outline-danger" do %>Delete<% end %>
       <% end %>
       </div>
     </div>
