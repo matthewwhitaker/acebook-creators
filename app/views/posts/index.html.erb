@@ -24,8 +24,7 @@
         <strong><%= h(post.message).gsub(/\n/, '<br/>').html_safe %></strong>
         <br>
         <i>On <%= post.created_at.strftime("%B %d %Y, %l:%M%P") %></i>
-        <br>By user number: <%= post.user_id %>
-
+        <br>By user number: <%= link_to user_path(id: post.user_id), controller: 'users' do %> <%= post.user_id %> <% end %>
        </div>
       <div class="card-like">
         <% existing_like = post.likes.find{ |like| like.user_id == current_user.id } %>
@@ -38,7 +37,6 @@
             <button type="button" class="btn btn-primary">Unlike</button>
           <% end %>
         <% end %>
-        
         <% if post.user_id == current_user.id %>
           <br><%= link_to 'Edit', edit_post_path(post), :id => "edit-#{post.id}" %>
           <%= link_to post_path(:id => post.id), controller: 'posts',

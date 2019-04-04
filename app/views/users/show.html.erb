@@ -1,0 +1,14 @@
+<p>
+<strong>User:</strong><br>
+<%= @user.id %>
+</p>
+
+<% if  current_user.id != @user.id %>
+  <% already_friend = current_user.friends.find{ |friend| friend.id == @user.id } %>
+  <% if !already_friend %>
+    <%= button_to 'Add Friend', friendships_path(id: @user.id), method: :post  %>
+  <% else %>
+    You are friends with this user
+  <% end %>
+<% end %>
+<%= button_to 'Back to feed', posts_path, method: :get %>
