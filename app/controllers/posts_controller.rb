@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.includes(:user).all.order('created_at DESC')
   end
 
   def update
