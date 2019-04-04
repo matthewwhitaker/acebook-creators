@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :friendships
   resources :posts do
-    resources :likes
+    put "like", to: "posts#upvote"
+    delete "dislike", to: "posts#downvote"
   end
   root to: 'posts#index'
 end

@@ -7,11 +7,13 @@ RSpec.feature 'Like', type: :feature, js: true do
     page.find('#like-button').click
   end
 
+  # scenario 'Post has a dislike button' do
+  #   user_sign_up
+  #   create_new_post('Welcome')
+  #   page.find('#dislike-button').click
+  # end
+
   scenario 'User can like a post' do
-    user_sign_up
-    create_new_post('Welcome')
-    # click_button 'Like'
-    page.find('#dislike-button').click
   end
 
   scenario 'User can unlike a previously liked post' do

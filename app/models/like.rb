@@ -1,4 +1,4 @@
-class Like < ApplicationRecord
-  belongs_to :post
-  belongs_to :user
-end
+# class Like < ApplicationRecord
+#   belongs_to :post
+#   belongs_to :user
+# end
