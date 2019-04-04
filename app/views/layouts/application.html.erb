@@ -12,7 +12,8 @@
         Makerbook
       <div class="logout-button" style = "float: right;">
         <% if user_signed_in? %>
-          <%= button_to('Logout', destroy_user_session_path, method: :delete, :class => "btn btn-info") %>
+        <%= current_user.firstname %> <%= current_user.lastname %>
+        <%= button_to('Logout', destroy_user_session_path, method: :delete, :class => "btn btn-info") %>
         <% end %>
       </div>
     </div>
