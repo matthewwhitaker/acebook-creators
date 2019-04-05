@@ -27,6 +27,9 @@
         <br>By user: <%= link_to user_path(id: post.user.id), controller: 'users' do %> <%= "#{post.user.firstname} #{post.user.lastname}" %> <% end %>
        </div>
       <div class="card-like">
+        <% if post.likes.length > 0 %>
+          Total Likes: <%= post.likes.count %>
+        <% end %>
         <% existing_like = post.likes.find{ |like| like.user_id == current_user.id } %>
         <% if !existing_like %>
           <%= link_to post_likes_path(post), method: :post do%>
