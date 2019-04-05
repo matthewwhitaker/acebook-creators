@@ -59,8 +59,7 @@ div[class="header-title"]{
 }
 
 body{
-  background-image: url('/assets/nick-abrams-195770-unsplash.jpg');
-  height: 100%;
+  background-image: url('nick-abrams-195770-unsplash.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

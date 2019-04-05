@@ -4965,3 +4965,58 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 396ms (Views: 370.9ms | ActiveRecord: 4.9ms)
 
 
+Started GET "/" for ::1 at 2019-04-05 14:41:37 +0100
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 17ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-05 14:41:37 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 369ms (Views: 342.1ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-05 14:41:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 73ms (Views: 71.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-05 14:42:28 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 355ms (Views: 330.2ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-05 14:42:34 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 92ms (Views: 90.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-05 14:42:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 64ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-05 14:42:40 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 80ms (Views: 78.6ms | ActiveRecord: 0.0ms)
+
+
