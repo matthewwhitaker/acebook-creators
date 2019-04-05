@@ -40676,3 +40676,1668 @@ Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.5ms)
   [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_8[0m
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_7[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 13:59:56 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 13:59:56 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 514ms (Views: 494.2ms | ActiveRecord: 6.4ms)
+Started GET "/assets/application-0ab4cee2dd99a47e8b87bfccd5a108551c6122b5f43c2bbb700edb72257d8f28.js" for 127.0.0.1 at 2019-04-05 13:59:57 +0100
+Started GET "/assets/application-37ab968603ae4cc35b95720a3ee42d6240aa47bc33cc4a18b2401d1caf7be2c3.css" for 127.0.0.1 at 2019-04-05 13:59:57 +0100
+Started GET "/assets/style-37ab968603ae4cc35b95720a3ee42d6240aa47bc33cc4a18b2401d1caf7be2c3.css" for 127.0.0.1 at 2019-04-05 13:59:57 +0100
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:57 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 13:59:57 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:57 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (5.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$AqIcprxcUlqoMRqRhlKkVOcswFsRiwrkANF6jjZur7MPKT4cKz2Ni"], ["created_at", "2019-04-05 12:59:58.041837"], ["updated_at", "2019-04-05 12:59:58.041837"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 53ms (ActiveRecord: 6.3ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 19ms (Views: 8.7ms | ActiveRecord: 3.3ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 28ms (Views: 8.8ms | ActiveRecord: 2.8ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Needs to be deleted"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (5.6ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Needs to be deleted"], ["created_at", "2019-04-05 12:59:58.430117"], ["updated_at", "2019-04-05 12:59:58.430117"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 26ms (ActiveRecord: 6.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 2.1ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Started DELETE "/posts/1" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by PostsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"tester@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "tester@test.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"tester@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:58 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.2ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"", "lastname"=>"", "email"=>"tester@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 10ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"", "lastname"=>"", "email"=>"tester@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tester@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 4.7ms | ActiveRecord: 0.9ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 13:59:59 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "another@an.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "another@an.com"], ["encrypted_password", "$2a$04$WZhQuomyxAcGmsCyx92NiOkNGLI2WZ/e3.fApGeyvpk1.L.AZpnda"], ["created_at", "2019-04-05 13:00:00.050244"], ["updated_at", "2019-04-05 13:00:00.050244"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hey!!!"], ["created_at", "2019-04-05 13:00:00.055618"], ["updated_at", "2019-04-05 13:00:00.055618"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$xtl7yIWLWJzqTpBuAbkYMeSzqZIepKEyaOhzigBIHEMnwfQrzLc1."], ["created_at", "2019-04-05 13:00:00.420655"], ["updated_at", "2019-04-05 13:00:00.420655"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hello"], ["created_at", "2019-04-05 13:00:00.604843"], ["updated_at", "2019-04-05 13:00:00.604843"], ["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 1.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Started GET "/users/1" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 27ms (Views: 21.0ms | ActiveRecord: 2.1ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Started POST "/friendships?id=1" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by FriendshipsController#create as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["friend_id", 1], ["created_at", "2019-04-05 13:00:00.830173"], ["updated_at", "2019-04-05 13:00:00.830173"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/users/1
+Completed 302 Found in 11ms (ActiveRecord: 2.4ms)
+Started GET "/users/1" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:00 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$P/pxZPAiY3miHlyuUxKh1eJH/EiHpXo2NdJLHfFWwOTQSYy0CFWe6"], ["created_at", "2019-04-05 13:00:01.341635"], ["updated_at", "2019-04-05 13:00:01.341635"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Welcome"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Welcome"], ["created_at", "2019-04-05 13:00:01.533850"], ["updated_at", "2019-04-05 13:00:01.533850"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:01 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$CqpTK1YSKVP0srJn28UUSubrapQKCp7QWalSfIdiIpZfW3sDY81Ve"], ["created_at", "2019-04-05 13:00:02.005240"], ["updated_at", "2019-04-05 13:00:02.005240"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.8ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Welcome"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Welcome"], ["created_at", "2019-04-05 13:00:02.205030"], ["updated_at", "2019-04-05 13:00:02.205030"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Started POST "/posts/1/likes" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("post_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 1], ["user_id", 1], ["created_at", "2019-04-05 13:00:02.298642"], ["updated_at", "2019-04-05 13:00:02.298642"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 14ms (ActiveRecord: 2.6ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:02 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$wYFpnMhUKxUQ61bhRq8FCuLou5MsKczA0TtV9B89znY.JCLDfW4ee"], ["created_at", "2019-04-05 13:00:03.087345"], ["updated_at", "2019-04-05 13:00:03.087345"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 2.4ms | ActiveRecord: 1.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Welcome"}, "commit"=>"Submit"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Welcome"], ["created_at", "2019-04-05 13:00:03.368820"], ["updated_at", "2019-04-05 13:00:03.368820"], ["user_id", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 12ms (ActiveRecord: 5.6ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 12ms (Views: 5.6ms | ActiveRecord: 1.9ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Started POST "/posts/1/likes" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"post_id"=>"1"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "likes" ("post_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 1], ["user_id", 1], ["created_at", "2019-04-05 13:00:03.512503"], ["updated_at", "2019-04-05 13:00:03.512503"]]
+  [1m[35m (0.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 13ms (ActiveRecord: 6.3ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 11ms (Views: 4.9ms | ActiveRecord: 4.1ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Started DELETE "/posts/1/likes/1" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by LikesController#destroy as HTML
+  Parameters: {"post_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.9ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:03 +0100
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$3W7SvZP4uD7jHox2Muao3O4LX5GWJAEOoNvjD.b0yf9GPU4haWtGS"], ["created_at", "2019-04-05 13:00:04.626597"], ["updated_at", "2019-04-05 13:00:04.626597"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello world!"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hello world!"], ["created_at", "2019-04-05 13:00:04.850935"], ["updated_at", "2019-04-05 13:00:04.850935"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 1.6ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.7ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:04 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$X.XbNmQBSbpzfObv5Xp8xuhTP3sxr5z6ncbe4EzTg1U8fBrqOBmiO"], ["created_at", "2019-04-05 13:00:05.390560"], ["updated_at", "2019-04-05 13:00:05.390560"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello World"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hello World"], ["created_at", "2019-04-05 13:00:05.567225"], ["updated_at", "2019-04-05 13:00:05.567225"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.9ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Good morning"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Good morning"], ["created_at", "2019-04-05 13:00:05.744213"], ["updated_at", "2019-04-05 13:00:05.744213"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 1.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:05 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$yLgFtCdcAjyIrSRj8rrOeei78erRzIsynXYRjUqTDOzVvxNxsJRuG"], ["created_at", "2019-04-05 13:00:06.183229"], ["updated_at", "2019-04-05 13:00:06.183229"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2008-05-15 11:00:00 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2008-05-15 11:00:00 +0100
+Started POST "/posts" for 127.0.0.1 at 2008-05-15 11:00:00 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Good morning"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Good morning"], ["created_at", "2008-05-15 10:00:00.141870"], ["updated_at", "2008-05-15 10:00:00.141870"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+Started GET "/posts" for 127.0.0.1 at 2008-05-15 11:00:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.7ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2008-05-15 11:00:00 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$3Wr6vhrThAz7AZO5vG4/9.4sdmr3YY/iHP.eIcmhntrLLz9CDLA3y"], ["created_at", "2019-04-05 13:00:06.823699"], ["updated_at", "2019-04-05 13:00:06.823699"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:06 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"This\r\nis\r\na\r\nmulti-line\r\npost"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "This\r\nis\r\na\r\nmulti-line\r\npost"], ["created_at", "2019-04-05 13:00:07.036256"], ["updated_at", "2019-04-05 13:00:07.036256"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 1.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$P6PcExVhqZHZLiKAtqJjD.2ZLBllONbDmkmDJyL5BbtZEkefrlPPS"], ["created_at", "2019-04-05 13:00:07.660861"], ["updated_at", "2019-04-05 13:00:07.660861"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:07 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$F2IU8dz.rky00opXYZbsUOOFObMn67OLHWOTSZ01np3sxFYJJKSgm"], ["created_at", "2019-04-05 13:00:08.381302"], ["updated_at", "2019-04-05 13:00:08.381302"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello world!"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hello world!"], ["created_at", "2019-04-05 13:00:08.556679"], ["updated_at", "2019-04-05 13:00:08.556679"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 2.2ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Started GET "/posts/1/edit" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Started PATCH "/posts/1" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello world!Hello everyone!"}, "commit"=>"Save Post", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "posts" SET "message" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["message", "Hello world!Hello everyone!"], ["updated_at", "2019-04-05 13:00:08.774227"], ["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts/1
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+Started GET "/posts/1" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$OxLiW0zhfjvBNZg0VFdjeuI5FqUZia7uNkh1TZ/cNiNziwoItEWzi"], ["created_at", "2019-04-05 13:00:09.364927"], ["updated_at", "2019-04-05 13:00:09.364927"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello world!"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hello world!"], ["created_at", "2019-04-05 13:00:09.580308"], ["updated_at", "2019-04-05 13:00:09.580308"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.7ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Started GET "/posts/1/edit" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Started PATCH "/posts/1" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello everyone!"}, "commit"=>"Save Post", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "posts" SET "message" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["message", "Hello everyone!"], ["updated_at", "2019-04-05 13:00:09.845266"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts/1
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+Started GET "/posts/1" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.7ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:09 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$iuRUQzdfs.run5wM8z1GjeRwWpqLzs.vQ5KAW15dt01dXk6F9AYqK"], ["created_at", "2019-04-05 13:00:10.586165"], ["updated_at", "2019-04-05 13:00:10.586165"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello world!"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hello world!"], ["created_at", "2019-04-05 13:00:10.798410"], ["updated_at", "2019-04-05 13:00:10.798410"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+Started GET "/" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:10 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (11.3ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (9.0ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND tablename <> 'ar_internal_metadata'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (3.1ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'pgapp_test'[0m
+  [1m[35m (13.6ms)[0m  [1m[35mTRUNCATE TABLE "public"."friendships", "public"."posts", "public"."likes", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$PHOCWOArID4.Z1x03T3x0.pX5jkw1IL1P46UgjsSxOdV5Jj8fFeta"], ["created_at", "2019-04-05 13:00:11.440925"], ["updated_at", "2019-04-05 13:00:11.440925"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.9ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Started POST "/posts" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Hello world!"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Hello world!"], ["created_at", "2019-04-05 13:00:11.618898"], ["updated_at", "2019-04-05 13:00:11.618898"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.8ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:11 +0100
+  [1m[35m (4.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (9.8ms)[0m  [1m[35mTRUNCATE TABLE "public"."friendships", "public"."posts", "public"."likes", "public"."users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/posts" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Started POST "/users" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$kaQZriiIOTXlWXkMN4AN8OpAwBD5cQZsgiIlF10zRdUzC.K14JwZW"], ["created_at", "2016-05-15 10:00:00.379296"], ["updated_at", "2016-05-15 10:00:00.379296"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+Started GET "/posts" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Started GET "/posts/new" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Started POST "/posts" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"message"=>"Good morning"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "Good morning"], ["created_at", "2016-05-15 10:00:00.567575"], ["updated_at", "2016-05-15 10:00:00.567575"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+Started GET "/posts" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.7ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2016-05-15 11:00:00 +0100
+Started GET "/posts/1/edit" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:55671/posts
+Filter chain halted as :post_time rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  Rendering html template
+  Rendered html template (0.0ms)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.8ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+  [1m[35m (3.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.1ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$//IA7dHGytqRjw9LTJ6pN.tWX/dGc7r482Qg6J/QvvSCjbGTw5j6S"], ["created_at", "2019-04-05 13:00:12.954426"], ["updated_at", "2019-04-05 13:00:12.954426"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:12 +0100
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$/nm/FJTZC3nE4zHK/04cSOFfode1NB7sJMg/5asnRyvtq4lV44uGu"], ["created_at", "2019-04-05 13:00:13.471501"], ["updated_at", "2019-04-05 13:00:13.471501"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.0ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:13 +0100
+Started POST "/users" for 127.0.0.1 at 2019-04-05 14:00:14 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"firstname"=>"Jack", "lastname"=>"Ross", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$OOGibxiTfR866WXIDuKkVeLBZK4dlUEpQr48gzAPr5UPyLcy0eOTC"], ["created_at", "2019-04-05 13:00:14.038783"], ["updated_at", "2019-04-05 13:00:14.038783"], ["firstname", "Jack"], ["lastname", "Ross"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55671/posts
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+Started GET "/posts" for 127.0.0.1 at 2019-04-05 14:00:14 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+Started GET "/assets/images/nick-abrams-195770-unsplash.jpg" for 127.0.0.1 at 2019-04-05 14:00:14 +0100
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM "public"."friendships";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."posts";[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM "public"."likes";[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM "public"."users";[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$04$SHAJk7dLIRy.30fLKej7l.OR7E/Z2zxVvzYPX0V.XPmqaQr11gOKW"], ["created_at", "2019-04-05 13:00:14.179924"], ["updated_at", "2019-04-05 13:00:14.179924"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."friendships";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."posts";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."likes";[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM "public"."users";[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_3[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$04$xBn.GbaoTV39zIUQvv0ZqOIPyyu/CYFphZYolAGYPsf/YjaCcj5QW"], ["created_at", "2019-04-05 13:00:14.202870"], ["updated_at", "2019-04-05 13:00:14.202870"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_3[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "hello"], ["created_at", "2019-04-05 13:00:14.205609"], ["updated_at", "2019-04-05 13:00:14.205609"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_3[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (5.9ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_2[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_3[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM "public"."friendships";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."posts";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."likes";[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM "public"."users";[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_3[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_4[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$04$8.7zpeOx6vb5G21f2KaWgukK8XUOQbi2zUXoqzXLOFTw0Ezxo7IQq"], ["created_at", "2019-04-05 13:00:14.236728"], ["updated_at", "2019-04-05 13:00:14.236728"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_4[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("message", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["message", "hello"], ["created_at", "2019-04-05 13:00:14.239465"], ["updated_at", "2019-04-05 13:00:14.239465"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_4[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_4[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM "public"."friendships";[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM "public"."posts";[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM "public"."likes";[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM "public"."users";[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_4[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_5[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$04$EowmSUSTPcsoFtOMxaUcW.eWa/bz8O6j6zPADW5hZABxdsmohZSfy"], ["created_at", "2019-04-05 13:00:14.261687"], ["updated_at", "2019-04-05 13:00:14.261687"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_5[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_4[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_5[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_5[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."friendships";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."posts";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."likes";[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM "public"."users";[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_5[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_5[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_5[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_5[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_5[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_6[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_6[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."friendships";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."posts";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."likes";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."users";[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_6[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_6[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_6[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_6[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_6[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_7[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$04$t/EmS3Xgg/Z8H7n0y0BWW.dAw4udCl.BgyejdZ5S.SjgyW4SBYoPa"], ["created_at", "2019-04-05 13:00:14.300819"], ["updated_at", "2019-04-05 13:00:14.300819"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_7[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_6[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_6[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_7[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL;ALTER TABLE "likes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_7[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."friendships";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."posts";[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM "public"."likes";[0m
+  [1m[35m (0.5ms)[0m  [1m[31mDELETE FROM "public"."users";[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_7[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL;ALTER TABLE "likes" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_7[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_7[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_7[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_7[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_8[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$04$u6yGFOT/F2BNQqrXDIRefONvw4rLDeV2eC/4G5k.a501vV.htNnwG"], ["created_at", "2019-04-05 13:00:14.322918"], ["updated_at", "2019-04-05 13:00:14.322918"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_8[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_7[0m

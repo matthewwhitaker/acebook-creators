@@ -59,7 +59,7 @@ div[class="header-title"]{
 }
 
 body{
-  background-image: url('nick-abrams-195770-unsplash.jpg');
+  background-image: url('/assets/nick-abrams-195770-unsplash.jpg');
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -140,6 +140,46 @@ img {
   text-align: center;
   margin: auto;
   width: 60%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-title{
+  align-self: center;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actions{
+  align-self: center;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.links-container{
+  align-self: center;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.field{
+  align-self: center;
+  text-align: center;
+  margin: auto;
+  width: 40%;
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
