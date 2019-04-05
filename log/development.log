@@ -4369,3 +4369,41 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-04-05 13:47:00 +0100
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 9]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 6]]
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  Rendered posts/index.html.erb within layouts/application (60.4ms)
+Completed 200 OK in 523ms (Views: 475.9ms | ActiveRecord: 15.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-04-05 13:47:08 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+6cSarK5zFVvRdPy/KLb9WAth+r1kehC73hXTYP6fZGfC7sjJR75QDXiAy8DTAjlMBgAc1pCAnTtKXOdXYmdlg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-04-05 13:47:08 +0100
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-04-05 13:47:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 57ms (Views: 56.5ms | ActiveRecord: 0.0ms)
+
+
