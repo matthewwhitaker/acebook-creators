@@ -9,7 +9,6 @@ end
 
 # RubyCritic is a gem that wraps around static analysis gems such as Reek, Flay
 # and Flog to provide a quality report of Ruby code.
-gem 'acts_as_votable', '~> 0.12.0'
 gem 'devise'
 gem 'rubycritic', require: false
 # rubycritic dependencies:

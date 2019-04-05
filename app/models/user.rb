@@ -1,9 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  acts_as_voter
-
-  has_many :votes
+  has_many :likes
   has_many :posts
   has_many :friendships
   has_many :friends, through: :friendships

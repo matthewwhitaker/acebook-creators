@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.includes(:user).all.order('created_at DESC')
   end
 
   def update
@@ -49,18 +49,6 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id]).destroy
     redirect_to posts_url
   end
-
-  def upvote
-  @post = Post.find_by(params[:id])
-  current_user.upvotes @post
-  redirect_to posts_url
-end
-
-def downvote
-  @post = Post.find_by(params[:id])
-  @post.unvote_by current_user
-  redirect_to posts_url
-end
 
   private
 

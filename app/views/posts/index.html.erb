@@ -28,19 +28,19 @@
         <br>By user number: <%= link_to user_path(id: post.user_id), controller: 'users' do %> <%= post.user_id %> <% end %>
        </div>
        <div class="card-like">
-
-         <%= link_to post_like_path(post_id: post.id), method: :put do %>
+         <% if post.likes.length > 0 %>
+                   Total Likes: <%= post.likes.count %>
+                 <% end %>
+                 <% existing_like = post.likes.find{ |like| like.user_id == current_user.id } %>
+                 <% if !existing_like %>
+                   <%= link_to post_likes_path(post), method: :post do%>
          <button id="like-button" class="far fa-heart fa-1x" type="button"></button>
-         <%= post.get_upvotes.size %>
          <% end %>
-
-         <%= link_to post_dislike_path(post_id: post.id), method: :put  do %>
+         <% else %>
+          <%= link_to post_like_path(post, existing_like), method: :delete do%>
          <button id="dislike-button" class="fas fa-heart fa-1x" type="button"></button>
-        <%= post.get_downvotes.size %>
          <% end %>
-
-
-
+         <% end %>
         <% if post.user_id == current_user.id %>
           <br><%= link_to edit_post_path(post), :id => "edit-#{post.id}" do %>
           <button id="edit-button" class="far fa-edit" type="button"></button><% end %>
