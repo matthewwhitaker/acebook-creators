@@ -1,39 +1,43 @@
 <div class="login-container">
-  <h2>Where makers connect</h2>
-  <%= image_tag("helena-lopes-459331-unsplash.jpg", alt: "friends", :size => "650x300") %>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <% if !flash[:alert].blank? %>
-      <% if flash[:alert][/The email address and password you entered do not match our records/] %>
-      <div class="flashNotice col last">
-        <%= t('devise.failure.not_found_in_database', resource_name: "#{params[:user][:email]}").html_safe %>
-      </div>
-      <% else %>
-      <div class="flashNotice col last"><%= flash[:alert]%></div>
+  <h2 class="home-title">Where makers connect</h2>
+  <br>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <% if !flash[:alert].blank? %>
+        <% if flash[:alert][/The email address and password you entered do not match our records/] %>
+        <div class="flashNotice col last">
+          <%= t('devise.failure.not_found_in_database', resource_name: "#{params[:user][:email]}").html_safe %>
+        </div>
+        <% else %>
+        <div class="flashNotice col last"><%= flash[:alert]%></div>
+        <% end %>
       <% end %>
-    <% end %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %><br>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-  <% end %>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %><br>
+    </div>
 
-  <%= render "devise/shared/links" %>
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in", class:"btn btn-success" %>
+      <% end %>
+    </div>
+    <br>
+    <%= render "devise/shared/links" %>
+
+
+
   <br><br><br>
-
+  <br><br><br>
 </div>

@@ -1,6 +1,6 @@
 # AceBook
 
-## Deployed App can be found at (new link to come)
+## Deployed App can be found [here](https://makers-acebook-creators.herokuapp.com/)
 
 REQUIRED INSTRUCTIONS:
 
@@ -61,3 +61,7 @@ See https://docs.google.com/document/d/1-bv7yLO38CKlP1r0C1-qqpVL5H6gtalqZolHUrqK
 ## Photo credits
 
 * [Helena Lopes on Unsplash](https://unsplash.com/photos/PGnqT0rXWLs)
+* [Ivana Cajina on Unsplash](https://unsplash.com/photos/7JWXbeBB4gY)
+* [Mike Erskine on Unsplash](https://unsplash.com/photos/S_VbdMTsdiA)
+* [Felix Rostig on Unsplash](https://unsplash.com/photos/UmV2wr-Vbq8)
+* [Nick Abrams on Unsplash](https://unsplash.com/photos/IKtdqKatKPk)

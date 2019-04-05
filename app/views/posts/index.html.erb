@@ -25,7 +25,7 @@
         <strong><%= h(post.message).gsub(/\n/, '<br/>').html_safe %></strong>
         <br>
         <i>On <%= post.created_at.strftime("%B %d %Y, %l:%M%P") %></i>
-        <br>By user number: <%= link_to user_path(id: post.user_id), controller: 'users' do %> <%= post.user_id %> <% end %>
+        <br>By user: <%= link_to user_path(id: post.user.id), controller: 'users' do %> <%= "#{post.user.firstname} #{post.user.lastname}" %> <% end %>
        </div>
        <div class="card-like">
          <% if post.likes.length > 0 %>
