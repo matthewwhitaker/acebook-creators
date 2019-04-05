@@ -1,5 +1,5 @@
-<div class="login-container">
-  <h2 class="home-title">Where makers connect</h2>
+<%# <div class="login-container"> %>
+  <h2 class="home-title">Where makers connect.</h2>
   <br>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -34,10 +34,11 @@
       <% end %>
     </div>
     <br>
-    <%= render "devise/shared/links" %>
-
+    <div class="links-container">
+      <%= render "devise/shared/links" %>
+    </div>
 
 
   <br><br><br>
-  <br><br><br>
-</div>
+
+<%# </div> %>
