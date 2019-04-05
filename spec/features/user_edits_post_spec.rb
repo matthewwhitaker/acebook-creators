@@ -7,7 +7,7 @@ RSpec.feature 'edit posts', type: :feature, js: true do
     user_sign_up
     create_new_post('Hello world!')
     expect(page).to have_content('Hello world!')
-    click_link 'Edit'
+    page.find('#edit-button').click
     find_field('post_message').send_keys('[Hello everyone!]')
     click_button 'Save Post'
     click_link 'Back to feed'
@@ -18,7 +18,7 @@ RSpec.feature 'edit posts', type: :feature, js: true do
     user_sign_up
     create_new_post('Hello world!')
     expect(page).to have_content('Hello world!')
-    click_link 'Edit'
+    page.find('#edit-button').click
     fill_in('post_message', with: 'Hello everyone!')
     click_button 'Save Post'
     click_link 'Back to feed'
@@ -33,8 +33,8 @@ RSpec.feature 'edit posts', type: :feature, js: true do
     click_button 'Logout'
     second_user_sign_up
     expect(page).to have_content('Hello world!')
-    expect(page).not_to have_content('Edit')
-    expect(page).to have_no_link('Edit')
+    expect(page).not_to have_content('#edit-button')
+    expect(page).to have_no_link('#edit-button')
   end
 
   scenario 'user cannot edit another users post' do
@@ -56,7 +56,7 @@ RSpec.feature 'edit posts', type: :feature, js: true do
     user_sign_up
     create_new_post('Good morning')
     Timecop.return
-    click_link 'Edit'
+    page.find('#edit-button').click
     page.driver.browser.switch_to.alert.accept
     expect(page.current_path).to eq '/posts'
   end
