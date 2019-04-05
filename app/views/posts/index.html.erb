@@ -28,17 +28,17 @@
         <br>By user number: <%= link_to user_path(id: post.user_id), controller: 'users' do %> <%= post.user_id %> <% end %>
        </div>
        <div class="card-like">
-         <% if !post.vote_registered? %>
-         <%= link_to post_like_path(post.id), method: 'put' do %>
+
+         <%= link_to post_like_path(post_id: post.id), method: :put do %>
          <button id="like-button" class="far fa-heart fa-1x" type="button"></button>
          <%= post.get_upvotes.size %>
          <% end %>
-         <% else %>
 
-         <%= link_to post_dislike_path(post.id), method: :delete  do %>
+         <%= link_to post_dislike_path(post_id: post.id), method: :put  do %>
          <button id="dislike-button" class="fas fa-heart fa-1x" type="button"></button>
+        <%= post.get_downvotes.size %>
          <% end %>
-         <% end %>
+
 
 
         <% if post.user_id == current_user.id %>

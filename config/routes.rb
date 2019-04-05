@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :friendships
   resources :posts do
     put "like", to: "posts#upvote"
-    delete "dislike", to: "posts#downvote"
+    put "dislike", to: "posts#downvote"
   end
   root to: 'posts#index'
 end
